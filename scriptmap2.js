@@ -21,6 +21,7 @@ function searchAcom(){
             if(e.target.status==404){
                 alert("There are no places with those values");
             }else{
+                
                 var output="   <table border=1>";
                 var allAcom = JSON.parse(e.target.responseText);
           // Loop through each 

@@ -26,14 +26,14 @@ $app->get('/Hamps/{tipe}', function($req,$res, array $args){
     }
      });
      
-        $app->get('/Map/{loc}/type/{typo}', function($req,$res, array $args){
-            $stmt = $this -> db -> prepare("SELECT `name`,`latitude`,`longitude` FROM `accommodation` where `location`= :loc and `type`= :typo " );
-            $stmt->bindParam(':loc',$args['loc']);
-            $stmt->bindParam(':typo',$args['typo']);
-            $stmt ->execute();
-            $results = $stmt->fetchALL(PDO::FETCH_ASSOC); 
-            return $res->withJson($results);
-           });
+$app->get('/Map/{loc}/type/{typo}', function($req,$res, array $args){
+    $stmt = $this -> db -> prepare("SELECT `name`,`latitude`,`longitude` FROM `accommodation` where `location`= :loc and `type`= :typo " );
+    $stmt->bindParam(':loc',$args['loc']);
+    $stmt->bindParam(':typo',$args['typo']);
+    $stmt ->execute();
+    $results = $stmt->fetchALL(PDO::FETCH_ASSOC); 
+    return $res->withJson($results);
+         });
 
 $app->get('/allAcom', function($req,$res, array $args){
 	$stmt = $this -> db -> prepare("SELECT * FROM `accommodation` ORDER BY `location` ASC" );
@@ -42,34 +42,37 @@ $app->get('/allAcom', function($req,$res, array $args){
 	return $res->withJson($results);
     });
     
- $app->get('/allAcom/{loc}', function($req,$res, array $args){
-        $stmt = $this -> db -> prepare ("SELECT * FROM `accommodation` where `location`=? ORDER BY `location` ASC ");
-          $stmt->bindParam(1,$args['loc']);
-          $stmt ->execute();
-          $results = $stmt->fetchALL(PDO::FETCH_ASSOC); 
-          return $res->withJson($results);
-         });
+$app->get('/allAcom/{loc}', function($req,$res, array $args){
+   $stmt = $this -> db -> prepare ("SELECT * FROM `accommodation` where `location`=? ORDER BY `location` ASC ");
+   $stmt->bindParam(1,$args['loc']);
+   $stmt ->execute();
+   $results = $stmt->fetchALL(PDO::FETCH_ASSOC); 
+   return $res->withJson($results);
+    });
     
 
 $app->get('/allAcom/{loc}/type/{typo}', function($req,$res, array $args){
-        $stmt = $this -> db -> prepare("SELECT * FROM `accommodation` where `location`= :loc and `type`= :typo " );
-        $stmt->bindParam(':loc',$args['loc']);
-        $stmt->bindParam(':typo',$args['typo']);
-        $stmt ->execute();
-        $results = $stmt->fetchALL(PDO::FETCH_ASSOC); 
-        return $res->withJson($results);
-       });
+    $stmt = $this -> db -> prepare("SELECT * FROM `accommodation` where `location`= :loc and `type`= :typo " );
+    $stmt->bindParam(':loc',$args['loc']);
+    $stmt->bindParam(':typo',$args['typo']);
+    $stmt ->execute();
+    $results = $stmt->fetchALL(PDO::FETCH_ASSOC); 
+    return $res->withJson($results);
+    });
+
+//Hay que cambiar el hecho de que no se autentifiquen si está vacío o completo 
+//Mirar más codigos http para cada acción 
 
 $app->get('/book/{name}/number/{number}/date/{date}', function($req,$res, array $args){
-        $stmt = $this -> db -> prepare("SELECT id FROM `accommodation` where `name` = :name " );
-        $stmt->bindParam(':name',$args['name']);
-        $stmt ->execute();
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-        $id=$row["id"];
+    $stmt = $this -> db -> prepare("SELECT id FROM `accommodation` where `name` = :name " );
+    $stmt->bindParam(':name',$args['name']);
+    $stmt ->execute();
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    $id=$row["id"];
         
-        $stmt2 = $this -> db -> prepare("SELECT * FROM `acc_dates` where `accId` = $id " );
-        $stmt2 ->execute();
-        $row2 = $stmt2->fetch(PDO::FETCH_ASSOC); 
+      $stmt2 = $this -> db -> prepare("SELECT * FROM `acc_dates` where `accId` = $id " );
+      $stmt2 ->execute();
+      $row2 = $stmt2->fetch(PDO::FETCH_ASSOC); 
 
         if($row2["availability"] < $args['number'] ){
 
