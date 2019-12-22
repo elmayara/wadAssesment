@@ -1,25 +1,47 @@
 <html>
 <head>
-<meta charset="UTF-8">
-    <title>PlacesToStay </title>
+    <meta charset="UTF-8">
+    <title><Place></Place>sToStay </title>
     <link rel="stylesheet" href="pts.css">
+   <script src="jquery-3.4.1.slim.js"></script>
 </head>
 <body> 
 
 <header>
-<h1>Web Application Development(SWD601) </h1>
-<h1>AE2-Cristian Batekela Martin Rodriguez</h1>
-<hr>
+    <h1>Web Application Development(SWD601) </h1>
+    <h1>AE2-Cristian Batekela Martin Rodriguez</h1>
+    <hr>
 </header>
 
 <div class="question">
     <hr>
-    <h2>Create a web service to allow clients to look up all accommodation in a given location.</h2>
-    <p></p>
+        <h2>Create a web service to allow clients to look up all accommodation in a given location.</h2>
+    <p>The web service allows to  </p>
     <br>
-    <h4></h4>
+    <h4>Query links:</h4>
+
+    <div class="controls" style="justify-content:space-around;">
+
+        <p>URL:</p><input type="text" id="txtQuery" name="queryString" style="width:75%;">
+        
+        <input type="button" id="btnGo" value="Go!" style="width:15%;">
+    </div>
+
+    <p>Click on a button to set the query string to that preset...</p>
+
+    <div class="controls" style="justify-content:space-around;">
+        <input type="button" class="linkbutton" id="btnAll" value="All">
+        <input type="button" class="linkbutton" id="btnLoc" value="Loc">
+        <input type="button" class="linkbutton" id="btnType" value="Type">
+    </div>
+
     <hr>
 </div>
+    <hr>
+</div>
+
+
+
 <div class="question">
     <hr>
     <h2>Create a web service to allow clients to look up all accommodation of a given type in a given location (e.g. all hotels in Hampshire). </h2>
@@ -97,6 +119,6 @@
     <h4></h4>
     <hr>
 </div>
-
+<script src="function.js"></script>
 </body>
 </html>

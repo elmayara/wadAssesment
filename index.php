@@ -11,29 +11,6 @@ $container['db'] = function() {
     return $conn;
 };
 
-$app->get('/Hamps/{tipe}', function($req,$res, array $args){
-    $stmt = $this -> db -> prepare("SELECT * FROM `acc_users` WHERE 'username'=$user and 'password'=$passw " );
-    $stmt ->execute();
-    $row = $stmt->fetch(PDO::FETCH_ASSOC); 
-    if ($row==null){
-        return $res->withStatus(401);
-    }else{
-    $stmt2 = $this -> db -> prepare("SELECT * FROM `accommodation` where `location`= 'Hampshire' and `type`= :typo  " );
-    $stmt2->bindParam(':typo',$args['typo']);
-    $stmt2 ->execute();
-    $results = $stmt2->fetchALL(PDO::FETCH_ASSOC); 
-    return $res->withJson($results);
-    }
-     });
-     
-$app->get('/Map/{loc}/type/{typo}', function($req,$res, array $args){
-    $stmt = $this -> db -> prepare("SELECT `name`,`latitude`,`longitude` FROM `accommodation` where `location`= :loc and `type`= :typo " );
-    $stmt->bindParam(':loc',$args['loc']);
-    $stmt->bindParam(':typo',$args['typo']);
-    $stmt ->execute();
-    $results = $stmt->fetchALL(PDO::FETCH_ASSOC); 
-    return $res->withJson($results);
-         });
 
 $app->get('/allAcom', function($req,$res, array $args){
 	$stmt = $this -> db -> prepare("SELECT * FROM `accommodation` ORDER BY `location` ASC" );
@@ -49,7 +26,29 @@ $app->get('/allAcom/{loc}', function($req,$res, array $args){
    $results = $stmt->fetchALL(PDO::FETCH_ASSOC); 
    return $res->withJson($results);
     });
-    
+    $app->get('/Hamps/{tipe}', function($req,$res, array $args){
+        $stmt = $this -> db -> prepare("SELECT * FROM `acc_users` WHERE 'username'=$user and 'password'=$passw " );
+        $stmt ->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC); 
+        if ($row==null){
+            return $res->withStatus(401);
+        }else{
+        $stmt2 = $this -> db -> prepare("SELECT * FROM `accommodation` where `location`= 'Hampshire' and `type`= :typo  " );
+        $stmt2->bindParam(':typo',$args['typo']);
+        $stmt2 ->execute();
+        $results = $stmt2->fetchALL(PDO::FETCH_ASSOC); 
+        return $res->withJson($results);
+        }
+         });
+         
+    $app->get('/Map/{loc}/type/{typo}', function($req,$res, array $args){
+        $stmt = $this -> db -> prepare("SELECT `name`,`latitude`,`longitude` FROM `accommodation` where `location`= :loc and `type`= :typo " );
+        $stmt->bindParam(':loc',$args['loc']);
+        $stmt->bindParam(':typo',$args['typo']);
+        $stmt ->execute();
+        $results = $stmt->fetchALL(PDO::FETCH_ASSOC); 
+        return $res->withJson($results);
+             });   
 
 $app->get('/allAcom/{loc}/type/{typo}', function($req,$res, array $args){
     $stmt = $this -> db -> prepare("SELECT * FROM `accommodation` where `location`= :loc and `type`= :typo " );
