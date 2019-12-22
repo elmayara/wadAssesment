@@ -4,7 +4,7 @@ $('#btnGo').click(function(){
         var string = $('#txtQuery').val();
         alert( string );
         //window.location = string;
-        var myWindow =window.open(string,'_self');
+        //var myWindow =window.open(string,'_self');
     });
 
 $('#btnAll').click(function(){
