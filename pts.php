@@ -5,10 +5,11 @@
         <link rel="stylesheet" href="pts.css">
         <link rel='stylesheet' href='https://unpkg.com/leaflet@1.5.1/dist/leaflet.css'/>
         <script type='text/javascript' src='https://unpkg.com/leaflet@1.5.1/dist/leaflet.js'></script>
+        
     </head>
-    <body onload="init()" >
-            <script type='text/javascript' src='script.js'></script>
-
+    <body onload=" init()">
+    <script type='text/javascript' src='scriptmap2.js'></script>
+    
             <div class="header">
                 <h1>PlacesToStay</h1>
                 <p>Broad to you by SolentTech Iberia.</p>
@@ -25,7 +26,11 @@
               <div class="leftcolumn">
                     <br>
                     <div class="search">  Location:<input id="loc">      Type:<input id="type">      <input type="button" id="btn1" value="Go!">           </div>
+                    <br>
+                    <br>
                     <div class="response" id="response"></div>
+                    <br>
+                    <br>
                     <div id="map1" style="width:800px; height:600px"></div>
                     <br>
                     
