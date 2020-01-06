@@ -1,11 +1,11 @@
 var marker1;
 var map;
-const allPlaces=[];
+var allPlaces=[];
 var i;
 
 function init() {
-
     document.getElementById("btn1").addEventListener("click", searchAcom);
+
         if(navigator.geolocation){
             navigator.geolocation.getCurrentPosition (
                 gpspos=> {
@@ -28,6 +28,7 @@ function init() {
         L.tileLayer
             ("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
                 { attribution: attrib } ).addTo(map);
+
     }
 
 function Places(name, description,  latitude ,longitude) {
@@ -38,8 +39,13 @@ function Places(name, description,  latitude ,longitude) {
     }
 
 function searchAcom(){
+        
         map.removeLayer(marker1);
+        allPlaces=[];
 
+        allPlaces.forEach(function(element) {
+            console.log(element.FirstName+element.Desc+element);
+        })
         var loc = document.getElementById("loc").value;
         var type = document.getElementById("type").value;
         console.log("")
@@ -66,14 +72,16 @@ function searchAcom(){
                          var temp = new Places(curAcoms.name,curAcoms.description,curAcoms.latitude,curAcoms.longitude);
                          allPlaces.push(temp);
                             allPlaces.forEach(function(element) {
+                               
                                 var lon=element.Long;
                                 var lat=element.Lat;
                                 var popupText=element.FirstName+": "+element.Desc;
                                 var markerLocation= new L.LatLng(lat, lon);
-                                var marker= new L.marker(markerLocation);
-                                map.addLayer(marker);
-                                marker.bindPopup(popupText)
+                                var marker1= new L.marker(markerLocation);
+                                map.addLayer(marker1);
+                                marker1.bindPopup(popupText)
                                 map.setView([element.Lat,element.Long],13);
+
                             });
                     } );    
                  var output=output+"</table>";
@@ -84,39 +92,3 @@ function searchAcom(){
         // Send the request.
         ajaxConnection.send();
     } 
-/*
-function markerify(){
-        allPlaces.forEach((){
-            var lon=allPlaces.;
-            var lat=allPlaces[i][3];
-            var popupText=allPlaces[i][1]+""+allPlaces[i][2];
-            var markerLocation= new L.LatLng(lat, lon);
-            var marker= new L.marker(markerLocation);
-            map.addLayer(marker);
-            marker.bindPopup(popupText);
-        });
-       
-        allPlaces.forEach(Places =>
-            var lon= Places.lon;
-            var lat=Places.lat];
-            var popupText=allPlaces[i][1]+""+allPlaces[i][2];
-            var markerLocation= new L.LatLng(lat, lon);
-            var marker= new L.marker(markerLocation);
-            map.addLayer(marker);
-            marker.bindPopup(popupText);
-            )
-
-        const anyAdult = people.some(person => person.age >= 18);
-        myArray.forEach((element, index, array) => {
-            console.log(element.x); // 100, 200, 300
-            console.log(index); // 0, 1, 2
-            console.log(array); // same myArray object 3 times
-        });
-} 
-*/
-
-
-
-// L.marker([curAcoms.latitude,curAcoms.longitude],).addTo(map1);} ); 
- /*L.marker([curAcoms.latitude,curAcoms.longitude]).addTo(map);
-                      L.marker([0,0]).addTo(map);*/

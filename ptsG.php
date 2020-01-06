@@ -18,7 +18,6 @@
 <div class="topnav">
 <a href="https://edward2.solent.ac.uk/~wad1941/assesment/pts.php">Search for Your Place</a>
   <a href="https://edward2.solent.ac.uk/~wad1941/assesment/ptsG.php">Geolocation</a>
-  <a href="https://edward2.solent.ac.uk/~wad1941/assesment/ptsH.php">Visit Hampshire</a>
   <a href="#" style="float:right">Log in</a>
 </div>
 
