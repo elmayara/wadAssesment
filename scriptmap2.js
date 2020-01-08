@@ -71,7 +71,7 @@ function searchAcom(){
                                     
                          var temp = new Places(curAcoms.name,curAcoms.description,curAcoms.latitude,curAcoms.longitude);
                          allPlaces.push(temp);
-                            allPlaces.forEach(function(element) {
+                         allPlaces.forEach(function(element) {
                                
                                 var lon=element.Long;
                                 var lat=element.Lat;

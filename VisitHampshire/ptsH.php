@@ -11,21 +11,44 @@
   
     </div>   
 <div class="header">
-  <h1>PlacesToStay</h1>
+  <h1>Visit Hampshire</h1>
   <p>Broad to you by SolentTech Iberia.</p>
 </div>
 
 <div class="topnav">
-<a href="https://edward2.solent.ac.uk/~wad1941/assesment/pts.php">Search for Your Place</a>
-  <a href="https://edward2.solent.ac.uk/~wad1941/assesment/ptsG.php">Geolocation</a>
+  <a href=""></a>
+  <a href=""></a>
   <a href="#" style="float:right">Log in</a>
 </div>
 
 <div class="row">
   <div class="leftcolumn">
-  
+        
+        <h4>Discover Hampshire<h4>
+            <p> Your official guide
+
+            Hampshire is the perfect blend of city, coast and country, blessed with natural beauty of two National Parks, thriving culture, with history and heritage at its heart.
+
+            Whether visiting for a day trip or short break, you’ll find tons of things to do, with so many attractions and experiences available.
+
+            Discover exciting events throughout the year from arts, culture, festivals, music, sports and much more.
+
+            Stay in amazing accommodation and sample Hampshire’s hearty food and drink.
+
+            Whether you visit with friends or family and looking for a relaxing or invigorating break Hampshire has it all!
+            </p>
+              <br>
+            <div class="search">Location:<input id="loc">Type:<input id="type"><input type="button" id="btn1" value="Go!"></div>
+              <br>
+              <br>
+            <div class="response" id="response"></div>
+              <br>
+              <br>
+            <div id="map1" style="width:800px; height:600px"></div>
+
   </div>
   <div class="rightcolumn">
+  <img src="hampshire.jpg" alt="Hampshire">
   </div>
 </div>
 
