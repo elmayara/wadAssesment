@@ -15,11 +15,14 @@ function searchAcom(){
                 allAcom.forEach( curAcoms =>{
                    
                     // add the details of the current flight to the "output" variable
+
+
                     let newDiv=document.createElement("div");
                     newDiv.setAttribute("id", "newDiv");
-                    var newContent=document.createTextNode(
-                    "Name"+curAcoms.name+"Type"+curAcoms.type+"Decripcion"+curAcoms.description);
+                    var newContent=document.createTextNode("Name:  "+curAcoms.name+" "+"Type:  "+curAcoms.type+"Decripcion:  "+curAcoms.description);
+                    newDiv.style.cssText="color: blue; border: 1px solid black";
                     newDiv.appendChild(newContent); 
+                    
                       // add the newly created element and its content into the DOM 
                   //  var currentDiv = document.getElementById("response"); 
                   //  document.body.appendChild(newDiv); 
