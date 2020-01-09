@@ -7,7 +7,7 @@
     <script type='text/javascript' src='https://unpkg.com/leaflet@1.5.1/dist/leaflet.js'></script>
 </head>
 <body onload="init()" >
-<script type='text/javascript' src='map1.js'></script>
+<script type='text/javascript' src='hamps2.js'></script>
   
     </div>   
 <div class="header">
@@ -37,14 +37,15 @@
 
             Whether you visit with friends or family and looking for a relaxing or invigorating break Hampshire has it all!
             </p>
-              <br>
-            <div class="search">Location:<input id="loc">Type:<input id="type"><input type="button" id="btn1" value="Go!"></div>
+           
+            <br>
+            <div class="search">Type:<input id="type"><input type="button" id="btn1" value="Go!"></div>
               <br>
               <br>
             <div class="response" id="response"></div>
-              <br>
-              <br>
-            <div id="map1" style="width:800px; height:600px"></div>
+            <br>
+            <br>
+           
 
   </div>
   <div class="rightcolumn">

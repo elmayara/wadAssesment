@@ -48,7 +48,6 @@ function searchAcom(){
         })
         var loc = document.getElementById("loc").value;
         var type = document.getElementById("type").value;
-        console.log("")
         var ajaxConnection = new XMLHttpRequest();
         // Set up the callback function. Here, the callback is an arrow function.
         ajaxConnection.addEventListener ("load",e => 

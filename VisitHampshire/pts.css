@@ -60,6 +60,8 @@ tfoot {
     float: left;
     width: 75%;
   }
+  .newDiv{
+    background-color:olive;  }
   
   /* Right column */
   .rightcolumn {
