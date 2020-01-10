@@ -46,7 +46,7 @@
                 <form action="/action_page.php" class="form-container">
                   <h1>Booking</h1>
 
-                  <input hidden id="placetostay" name="date" value="">
+                  <input  id="placetostay" name="date" value="place">
 
                   <label for="date"><b>Date</b></label>
                   <input type="date" placeholder="Enter date" name="date" required>

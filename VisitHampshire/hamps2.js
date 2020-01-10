@@ -5,7 +5,8 @@ var place="";
 function init(){
     document.getElementById("btn1").addEventListener("click", whatTodo);
     document.getElementById("form").style.display = "none";
-    document.getElementById("response").addEventListener("click",Availability);
+
+    
 }
 
 function whatTodo(){
@@ -82,14 +83,12 @@ function searchAcom(){
                             newDiv.setAttribute("id", curAcoms.name);
                             newContent.style.textAlign = "left";
                             document.getElementById('response').appendChild(newDiv); 
-                            
                             newDiv.onclick = function(event){
                                 //alert(event.currentTarget.id);
                                 document.getElementById("form").style.display = "block";
-                                //document.getElementById("placetostay").setAttribute(value,event.currentTarget.id);
                                 place=event.currentTarget.id;
-                                console.log(place.getElementById.toString);
-                                console.log(document.getElementById("placetostay"));
+                                console.log(place);
+                                document.getElementById("placetostay").value=place;
                             }
                         }
                     );    
@@ -103,7 +102,5 @@ function searchAcom(){
 function Availability(){
     //console.log("availability");
     //console.log(document.getElementById.toString);
-    
-   
     //object.style.visibility = "visible|hidden|collapse|initial|inherit"
 }
