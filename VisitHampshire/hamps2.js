@@ -14,18 +14,39 @@ function searchAcom(){
             // Loop through each 
                 allAcom.forEach( curAcoms =>{
                    
-                    // add the details of the current flight to the "output" variable
-
-
                     let newDiv=document.createElement("div");
                     newDiv.setAttribute("id", "newDiv");
+                    newDiv.style.cssText="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);";
+
+                    var img = document.createElement('img'); 
+                    if(curAcoms.type=="hotel"){
+                        img.src = '\hotel.png'; 
+                        img.style.cssText="border: 1px solid #ddd; border-radius: 4px; padding: 5px; width: 150px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);";
+                    }
+                    if(curAcoms.type=="BandB"){
+                        img.src = '\bandb.png'; 
+                        img.style.cssText="border: 1px solid #ddd; border-radius: 4px; padding: 5px; width: 150px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);";
+                    }
+                    if(curAcoms.type=="campsite"){
+                        img.src = '\campsite.png'; 
+                        img.style.cssText="border: 1px solid #ddd; border-radius: 4px; padding: 5px; width: 150px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);";
+                    }
+                   
                     var newContent=document.createTextNode("Name:  "+curAcoms.name+" "+"Type:  "+curAcoms.type+"Decripcion:  "+curAcoms.description);
                     newDiv.style.cssText="color: blue; border: 1px solid black";
-                    newDiv.appendChild(newContent); 
+                   // newDiv.style.textAlign = "center";
+                   // newContent.style.textAlign = "center";
                     
-                      // add the newly created element and its content into the DOM 
-                  //  var currentDiv = document.getElementById("response"); 
-                  //  document.body.appendChild(newDiv); 
+                    newDiv.appendChild(newContent);
+                    newDiv.appendChild(img);
+                    
+                    
+                    
+                   
+        
+
+
+
                     document.getElementById('response').appendChild(newDiv); 
                   
                     }
