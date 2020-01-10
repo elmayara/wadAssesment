@@ -88,5 +88,34 @@ $app->get('/book/{name}/number/{number}/date/{date}', function($req,$res, array 
             return $res->withStatus(401);
         }});
 
+
+
+$app->get('/Hamps/number/{number}/date/{date}', function($req,$res, array $args){
+    $stmt = $this -> db -> prepare("SELECT id FROM `accommodation` where `name` = :name " );
+    $stmt->bindParam(':name',$args['name']);
+    $stmt ->execute();
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    $id=$row["id"];
+        
+      $stmt2 = $this -> db -> prepare("SELECT * FROM `acc_dates` where `accId` = $id " );
+      $stmt2 ->execute();
+      $row2 = $stmt2->fetch(PDO::FETCH_ASSOC); 
+
+        if($row2["availability"] < $args['number'] ){
+
+            $stmt3=$this ->db -> prepare("INSERT INTO 'acc_bookings' (`accID`, `thedate`, `npeople`) VALUES ( $id, :dato , :numbero ) ");
+            $stmt3->bindParam(':dato',$args['date']);
+            $stmt3->bindParam(':numbero',$args['number']);
+            $stmt3 ->execute();
+            
+            $stmt4=$this ->db -> prepare(" UPDATE  'acc_dates' SET availability=availability -:numbero where id=$id");
+            $stmt4->bindParam(':numbero',$args['number']);
+            $stmt4 ->execute();
+            return $res->withStatus(200);
+        }else{
+            return $res->withStatus(401);
+        }});
+
 $app->run();
+
 ?>

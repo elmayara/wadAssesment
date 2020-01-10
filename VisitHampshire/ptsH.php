@@ -39,12 +39,31 @@
             </p>
            
             <br>
-            <div class="search">Type:<input id="type"><input type="button" id="btn1" value="Go!"></div>
-              <br>
+            <div id="overlay" class="search">Type:<input id="type">             <input type="button" id="btn1" value="Search/Reload"></div>
+           
+            <div class="form-popup" id="form">
+
+                <form action="/action_page.php" class="form-container">
+                  <h1>Booking</h1>
+
+                  <input hidden id="placetostay" name="date" value="">
+
+                  <label for="date"><b>Date</b></label>
+                  <input type="date" placeholder="Enter date" name="date" required>
+
+                  <label for="nmbr"><b>Password</b></label>
+                  <input type="number" placeholder="Enter number" name="nmbr" required>
+
+                  <button type="submit" class="btn">Booking</button>
+                  <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                </form>
+              </div>
+            <br>
               <br>
             <div class="response" id="response"></div>
             <br>
             <br>
+
            
 
   </div>
